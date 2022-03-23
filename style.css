@@ -1,0 +1,25 @@
+canvas {
+    border: 1px solid black;
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+  }
+  .invisible {
+    display: none;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .center-block {
+    display: block;
+    margin: auto;
+  }
+  .row {
+    margin: 10px;
+  }
+  tr td {
+    padding-right: 10px;
+    width: 25%;
+    vertical-align: top;
+    font: 14px 'Lucida Grande', sans-serif;
+  }
