@@ -24,7 +24,7 @@ var status = "undefined";
 var counter_start = new Date().getTime();
 var count_for_call = 0;
 var countdown = 0;
-var question_count = 0;
+var question_count = 1;
 var question_index;
 var question;
 var final_result_for_all_qstn = [];
@@ -101,32 +101,11 @@ function onResults(results) {
         find_orientation(landmarks);
       }
 
-      drawConnectors(canvasCtx, landmarks, FACEMESH_TESSELATION, {
-        color: "#C0C0C070",
-        lineWidth: 1,
-      });
-      drawConnectors(canvasCtx, landmarks, FACEMESH_RIGHT_EYE, {
-        color: "#FF3030",
-      });
-      drawConnectors(canvasCtx, landmarks, FACEMESH_RIGHT_EYEBROW, {
-        color: "#FF3030",
-      });
-      drawConnectors(canvasCtx, landmarks, FACEMESH_RIGHT_IRIS, {
-        color: "#FF3030",
-      });
-      drawConnectors(canvasCtx, landmarks, FACEMESH_LEFT_EYE, {
-        color: "#30FF30",
-      });
-      drawConnectors(canvasCtx, landmarks, FACEMESH_LEFT_EYEBROW, {
-        color: "#30FF30",
-      });
-      drawConnectors(canvasCtx, landmarks, FACEMESH_LEFT_IRIS, {
-        color: "#30FF30",
-      });
-      drawConnectors(canvasCtx, landmarks, FACEMESH_FACE_OVAL, {
-        color: "#E0E0E0",
-      });
-      drawConnectors(canvasCtx, landmarks, FACEMESH_LIPS, { color: "#E0E0E0" });
+      // drawConnectors(canvasCtx, landmarks, FACEMESH_TESSELATION, {
+      //   color: "#C0C0C070",
+      //   lineWidth: 1,
+      // });
+
     }
   }
   canvasCtx.restore();
@@ -216,8 +195,7 @@ const interval = () => {
 
 setInterval(function () {
   if(start == true){
-    if (question_count > 2){
-      // console.log("sssssssssssssssssssssssssss");
+    if (question_count > 3){
       clearInterval(interval);
       final_verdict();
       return;
