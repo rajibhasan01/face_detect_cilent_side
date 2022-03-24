@@ -1,7 +1,11 @@
-
 const videoElement = document.getElementsByClassName('input_video')[0];
 const canvasElement = document.getElementsByClassName('output_canvas')[0];
 const canvasCtx = canvasElement.getContext('2d');
+const question_label = document.getElementById("question_label");
+const question_no = document.getElementById("question_no");
+const verdict = document.getElementById("verdict");
+const verdict_box = document.getElementById("verdict_box");
+const question_box_id = document.getElementById("question_box_id");
 
 // defining variable
 var count = 0;
@@ -26,6 +30,9 @@ final_result_for_all_qstn=[];
 buffer_result_for_single_qstn=[];
 
 console.log(question);
+
+question_label.innerHTML = question;
+question_no.innerHTML = question_count;
 
 
 // Match question answer
@@ -148,12 +155,16 @@ const final_verdict = () =>{
   const right_ans = final_result_for_all_qstn.filter(x => x==1).length;
   if (right_ans >= 3){
     console.log("Real");
+    verdict.innerHTML = "Real";
   }
   else{
-    console.log("Fake")
+    console.log("Fake");
+    verdict.innerHTML = "Fake";
   }
+  question_box_id.classList.remove("question_box");
+  question_box_id.classList.add("invisible");
+  verdict_box.classList.add('question_box');
 }
-
 
 
 // generating question
@@ -176,7 +187,9 @@ const generate_qstn = () =>{
     make_single_decision(question);
     question_index = new_index;
     question = question_bank[question_index];
+    question_label.innerHTML = question;
     question_count = question_count + 1;
+    question_no.innerHTML = question_count;
     console.log(question);
   }
 }
