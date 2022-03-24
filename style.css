@@ -23,3 +23,50 @@ canvas {
     vertical-align: top;
     font: 14px 'Lucida Grande', sans-serif;
   }
+
+  /* .button-container {
+    margin-left: 20px;
+    position: absolute;
+    top: 50px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } */
+
+  .btn_box{
+    margin-bottom: 50px;
+  }
+
+  .action{
+    margin-bottom: 20px;
+  }
+
+  .question_box{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  #qstn_ans_checklist{
+    width: 120px;
+  }
+
+  .single_qstn_ans{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+  }
+
+  .underLine{
+    margin-top: 5px;
+    display: block;
+    border: 1px solid black;
+    width: 200px;
+  }
+
+  .wrong{
+    color: red;
+  }
+  .right{
+    color: green;
+  }
