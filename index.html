@@ -1,28 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Craft Ltd.</title>
-    <style>
-        .container{
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: beige;
-            color: black;
-            text-align: center;
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>Display Webcam Stream</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    
-    <div class="container">
-    <a href="./verification.html"><input type="button" value="Start"></a>
-        <h1>Check liveliness by clicking the start button</h1>
-        <img src="https://shuftipro.com/wp-content/uploads/2019/07/Liveness-Detection.jpg" alt="W3Schools.com">
+  <div id="container">
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+      <tr>
+        <td></td>
+        <td>
+          <div class="text-center">
+            <span>Current Question: </span><span id="filterName">Pass Through</span>
+          </div>
+        </td>
+        <td>
+          <div class="action">Action</div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <canvas class="center-block output_canvas" id="canvasOutput" width=320 height=240></canvas>
+        </td>
+        <td class="button-container">
+         <div class="btn_box">
+            <!-- re-run button -->
+          <a id="re_run" href="./index.html"><input type="button" value="Re-run"></a>
+          <!-- start face-detection -->
+          <button id="start_btn">start</button>
+         </div>
+
+          <!-- question answer -->
+          <div class="marksheet_container">
+            <div>Question and Answer Check List</div>
+            <span class="underLine"></span>
+
+            <div id="qstn_ans_checklist">
+
+              <!-- dynamically added html here -->
+
+            </div>
+          </div>
+
+        </td>
+        <td>
+        </td>
+      </tr>
+    </table>
+
+    <div id="question_box_id" class="question_box">
+      <label> Question <span id="question_no"> </span> : <span id="question_label"></span> </label>
     </div>
+    <div id="verdict_box" class="invisible">
+      <label> Verdict: <span id="verdict"> </span></label>
+    </div>
+
+    <div class="invisible">
+      <video id="video" class="hidden input_video">Your browser does not support the video tag.</video>
+    </div>
+  </div>
 </body>
+<script src="face.js"></script>
+
 </html>

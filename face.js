@@ -8,6 +8,7 @@ const verdict_box = document.getElementById("verdict_box");
 const question_box_id = document.getElementById("question_box_id");
 const start_btn = document.getElementById("start_btn");
 const re_run = document.getElementById("re_run");
+const qstn_ans_checklist = document.getElementById("qstn_ans_checklist");
 
 
 // question_box_id.classList.remove("question_box");
@@ -74,10 +75,16 @@ const make_single_decision = (question) => {
 
   if (false_count > 0) {
     final_result_for_all_qstn.push(0);
-    console.log("False");
+    const div = document.createElement("div");
+    div.innerHTML = `<div class="single_qstn_ans"> <span>${question}</span> <span class="wrong">Unmatched</span></div>`
+    qstn_ans_checklist.appendChild (div);
+
+
   } else {
     final_result_for_all_qstn.push(1);
-    console.log("True");
+    const div = document.createElement("div");
+    div.innerHTML = `<div class="single_qstn_ans"> <span>${question}</span> <span class="right">Matched</span></div>`
+    qstn_ans_checklist.appendChild (div);
   }
 
   buffer_result_for_single_qstn.length = 0;
@@ -193,10 +200,11 @@ const generate_qstn = () => {
 
 const interval = () => {
 
-setInterval(function () {
+const checkInterval = setInterval(function () {
   if(start == true){
     if (question_count > 3){
-      clearInterval(interval);
+      clearInterval(checkInterval);
+      make_single_decision(question);
       final_verdict();
       return;
     }
