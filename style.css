@@ -40,6 +40,10 @@ canvas {
     margin-bottom: 20px;
   }
 
+  .hidden{
+    display: none;
+  }
+
   .question_box{
     margin-top: 50px;
     display: flex;
